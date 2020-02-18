@@ -2,7 +2,7 @@
 
 const fs = require("fs");
 const pathMod = require("path");
-const links = require('./lib/links.js');
+const fileLinks = require('./lib/links.js');
 const markdownLinkExtractor = require('markdown-link-extractor');
 let fetch = require("node-fetch");
 
@@ -24,12 +24,12 @@ const options = {
 
 const mdLinks = (path, options) => {
 
-  const inputOk = links.checkArg(path, options.arg2, options.arg3);
+  const inputOk = fileLinks.checkArg(path, options.arg2, options.arg3);
   console.log(inputOk);
-  const absoluteOk = links.pathIsAbsolute(inputOk[0]);
+  const absoluteOk = fileLinks.pathIsAbsolute(inputOk[0]);
   console.log(absoluteOk);
 
-  const extension = links.checkExt(absoluteOk);
+  const extension = fileLinks.checkExt(absoluteOk);
   console.log(extension);
 
   const stat = fs.statSync(absoluteOk);
@@ -43,7 +43,7 @@ const mdLinks = (path, options) => {
     
     if (extension === '.md') {
 
-      links.readNewFile(absoluteOk)
+      fileLinks.readNewFile(absoluteOk)
         .then(function (res) {
           console.log(res);
 
