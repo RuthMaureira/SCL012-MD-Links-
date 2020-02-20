@@ -1,10 +1,8 @@
 #!/usr/bin/env node
 
 const fs = require("fs");
-const pathMod = require("path");
 const fileLinks = require('./lib/links.js');
-const markdownLinkExtractor = require('markdown-link-extractor');
-let fetch = require("node-fetch");
+const chalk = require('chalk');
 
 /* const arg = process.argv; */
 const path = process.argv[2];
@@ -12,8 +10,8 @@ const arg2 = process.argv[3];
 const arg3 = process.argv[4];
 
 const options = {
-  arg2: arg2,
-  arg3: arg3
+  validate: arg2,
+  stats: arg3
 }
 
 /* console.log(arg);
@@ -24,7 +22,7 @@ const options = {
 
 const mdLinks = (path, options) => {
 
-  const inputOk = fileLinks.checkArg(path, options.arg2, options.arg3);
+  const inputOk = fileLinks.checkArg(path, options.validate, options.stats);
   console.log(inputOk);
   const absoluteOk = fileLinks.pathIsAbsolute(inputOk[0]);
   console.log(absoluteOk);
@@ -48,16 +46,7 @@ const mdLinks = (path, options) => {
           console.log(res);
 
           /* Rescatar links del archivo */
-          const markdown = res.toString();
-          const links = markdownLinkExtractor(markdown);
-          let text;
-          let linksExtracted = [];
-
-          links.forEach(function (link) {
-            console.log(link);
-            linksExtracted = link;
-            console.log(link);
-          });
+         
 
         })
     }
@@ -74,28 +63,3 @@ mdLinks(path, options);
 
 
 
-/*const mdLinks = (path, options) => {
-  return new Promise((resolve, reject) => {
-    fs.stat(path, (err, stat) => {
-      if (err) return reject(err.code);
-      if (stat && stat.isDirectory()) {
-        directory(path, (err, results) => {
-          if (err) return reject(err.code);
-          loopFile(results, options, (err, results) => {
-            if (err) return reject(err.code);
-            return resolve(results);
-          })
-        })
-      } else {
-        resolveFile(path, (err, results) => {
-          if (err) return reject(err.code);
-          return resolve(selectOptions(results, options));
-        })
-      }
-    })
-
-  });
-}
-
-
-module.exports = mdLinks;*/

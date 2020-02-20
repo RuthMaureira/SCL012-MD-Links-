@@ -10,8 +10,8 @@
     "eslint-plugin-import": "^2.20.1"
   },
   "dependencies": {
+    "chalk": "^3.0.0",
     "directory-tree": "^2.2.4",
-    "markdown-link-extractor": "^1.2.2",
     "node-fetch": "^2.6.0"
   }
 }
