@@ -1,8 +1,11 @@
 {
   "name": "md-links",
   "version": "0.1.0",
-  "description": "lib",
+  "description": "Validate and stats of Markdown links",
   "author": "Ruth Maureira",
+  "bugs": {
+    "url": "https://github.com/RuthMaureira/SCL012-MD-Links-/issues"
+  },
   "main": "index.js",
   "devDependencies": {
     "eslint": "^6.8.0",
