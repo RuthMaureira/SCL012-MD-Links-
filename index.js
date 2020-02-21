@@ -210,12 +210,9 @@ const mdLinks = (path, options) => {
 
                    /*for (let i = 0; i < matches.length; i++){
                      let itemBroken = arrLinks[i].statusText;
-
                      console.log(itemBroken);
-
                      if(itemBroken === 'fail') brokenLink++;
                    }
-
                    console.log(brokenLink);*/
 
                     console.log(chalk.blue.bold('El archivo ' + libPath.basename(absoluteOk) + ' tiene ' + total + ' links y de ellos ' + validLink + ' son válidos'));
@@ -228,130 +225,12 @@ const mdLinks = (path, options) => {
                 .catch(error => console.error(chalk.red(error)))
 
 
-              /*.then(totalLinks => {
-                console.log(totalLinks);
-
-                const arrLinks2 = totalLinks[0];
-                const arrTotal = totalLinks[1];
-                const hrefLinks = arrLinks2[0].href;
-                console.log(arrLinks2);
-                console.log(hrefLinks);
-                console.log(arrTotal);
-                console.log(options.validate);
-
-                let countBroken = 0;
-                
-
-               /* arrLinks2.forEach(hrefLinks => {
-                  fetch(hrefLinks)
-                  .then(res => {
-                    if (res.ok === true) {
-                      .status = res.status;
-                      arrLinks2[i].statusText = 'ok';
-                    } else {
-                      arrLinks2[i].status = res.status;
-                      arrLinks2[i].statusText = 'fail';
-                      countBroken++;
-                    }
-                  })
-                })
-
-                if (arrTotal > 0 && options.validate === true) {
-
-                  for (let i = 0; i < arrTotal; i++) {
-
-                    const linkAbsolute = arrLinks2[i].toString();
-
-                      fetch(arrLinks2[i].href)
-                      .then(res => {
-                        /* console.log(res.ok);
-                         console.log(res.status);
-                         console.log(res.statusText);
-                         console.log(res.headers.raw());
-                        console.log(res.headers.get('content-type'));*/
-
-              /*     if (res.ok === true) {
-                          arrLinks2[i].status = res.status;
-                          arrLinks2[i].statusText = 'ok';
-                        } else {
-                          arrLinks2[i].status = res.status;
-                          arrLinks2[i].statusText = 'fail';
-                          countBroken++;
-                        }
-                      })              
-                  }
-                }
-
-
-                /*arrLinks2.forEach((link) => {
-                  fetch()
-                  .then(res => {
-                    /* console.log(res.ok);
-                     console.log(res.status);
-                     console.log(res.statusText);
-                     /* console.log(res.headers.raw());
-                      console.log(res.headers.get('content-type'));*/
-              /*  arrLinks.status = res.status;
-                  if (res.ok === true) {
-                    arrLinks.statusText = 'ok';
-                  } else {
-                    arrLinks.statusText = 'fail';
-                    countBroken++;
-                  }
-              })*/
-
-              /*console.log(arrLinks);
-              newUnique = [...new Set(link)];
-              console.log(countBroken);
-              return arrLinks, countBroken;*/
-              /*}
-              .catch(err => console.error(chalk.red(err)));*/
-
-
             } else {
               console.log(chalk.red.bold('Su archivo no es md'));
             }
           }
         })
       }
-
-
-
-
-
-
-
-
-
-    /*.then(linksTotal => {
-      console.log(linksTotal);
-      console.log('Cantidad de archivos md encontrados en directorios: ' + linksTotal[1]);
-    })*/
-
-
-
-
-
-
-
-    /* if (stat.isDirectory() === true) {
-
-     } else if (stat.isFile() === true) {
-
-       if (extension === '.md') {
-
-         fileLinks.readNewFile(absoluteOk)
-           .then(function (res) {
-             console.log(res);
-
-             /* Rescatar links del archivo */
-
-
-    /*   })
-      }
-    } else {}*/
-
-
 
 
     mdLinks(path, options);
